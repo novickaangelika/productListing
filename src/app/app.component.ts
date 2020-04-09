@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -10,19 +12,30 @@ export class AppComponent implements OnInit {
   title = 'productListing';
 
   constructor(
-    private http: HttpClient) { }
+    private translate: TranslateService,
+    private http: HttpClient
+  ) {
+      translate.addLangs(['en', 'pl']);
+      translate.setDefaultLang('en');
+  }
 
   ngOnInit() {
-    const qwe = this.http.get('../assets/data/dane_pl.csv', { responseType: 'text' });
-    qwe.subscribe(d => {
-      console.log('qwe', this.csvJSON(d));
-    });
+    const qwe = this.http.get('../assets/data/dane_en.csv', { responseType: 'text' });
+
+    qwe.pipe(
+      map(data => this.csvJSON(data)),
+      map(productListing => {
+        return productListing;
+        // productListing.products.map({image})
+      })
+    ).subscribe(d =>
+      console.log('qwe', d)
+    );
   }
 
   csvJSON(csv: string){
-
     const lines = csv.split('\n');
-    const result = [];
+    const products = [];
     const headers = lines.shift().split(';');
 
     lines.forEach((asd, i) => {
@@ -36,9 +49,9 @@ export class AppComponent implements OnInit {
         obj[zxc] = currentline[j];
       });
 
-	    result.push(obj);
+	    products.push(obj);
     });
 
-    return result;
+    return { headers, products };
   }
 }

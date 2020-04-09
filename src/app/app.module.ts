@@ -1,22 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { ProductsModule } from './products/products.module';
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/');
+}
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
+    ProductsModule
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
