@@ -1,4 +1,5 @@
-<app-header></app-header>
-<h1>{{'image' | translate}}</h1>
-<app-products [products]="(products$ | async)"></app-products>
+<header>
+    <app-language-change [currentLanguage]="(currentLanguage$ | async)"></app-language-change>
+</header>
+<app-products [currentLanguage]="(currentLanguage$ | async)"></app-products>
 <app-footer></app-footer>

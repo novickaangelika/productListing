@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-
-import { CsvConverterService } from './shared/services/csv-converter.service';
-import { Product } from './products/shared/models/product.model';
+import { LanguageChangerService } from './language-change/shared/services/language-changer.service';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -12,25 +10,18 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'productListing';
-  products$: Observable<Product[]>;
+  currentLanguage$: Observable<string>;
 
   constructor(
     private translate: TranslateService,
-    private csvConverterService: CsvConverterService
+    private languageChangerService: LanguageChangerService
   ) {
-      translate.addLangs(['en', 'pl']);
-      translate.setDefaultLang('en');
   }
 
   ngOnInit() {
-    this.products$ = this.csvConverterService.getCsvData('dane_en')
-      .pipe(
-        map(data => {
-          const wynik = this.csvConverterService.convertCsvData(data);
-          console.log('wynik', wynik);
-          return wynik;
-        })
-      );
+    // todo to tu na pewno nie moze byc
+    this.currentLanguage$ = this.languageChangerService.languageCode$.pipe(
+      tap(d => this.translate.setDefaultLang(d))
+    );
   }
 }

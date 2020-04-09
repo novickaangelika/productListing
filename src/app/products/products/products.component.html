@@ -1,6 +1,6 @@
 <ng-container *ngIf="true; else boxView">
-    <app-products-table [products]="products"></app-products-table>
+    <app-products-table [products]="(products$ | async)"></app-products-table>
 </ng-container>
 <ng-template #boxView>
-    <app-products-boxes [products]="products"></app-products-boxes>
+    <app-products-boxes [products]="(products$ | async)"></app-products-boxes>
 </ng-template>
