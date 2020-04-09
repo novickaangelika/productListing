@@ -19,9 +19,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // todo to tu na pewno nie moze byc
     this.currentLanguage$ = this.languageChangerService.languageCode$.pipe(
-      tap(d => this.translate.setDefaultLang(d))
+      tap(currentLanguage => this.translate.setDefaultLang(currentLanguage))
     );
   }
 }

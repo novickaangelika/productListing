@@ -27,7 +27,6 @@ export class LanguageChangeComponent implements OnInit {
   }
 
   changeLanguage(code: string) {
-    console.log('code', code);
     this.translate.setDefaultLang(code);
     this.languageChangerService.changeLanguage(code);
   }

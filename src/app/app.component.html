@@ -1,5 +1,5 @@
 <header>
     <app-language-change [currentLanguage]="(currentLanguage$ | async)"></app-language-change>
 </header>
-<app-products [currentLanguage]="(currentLanguage$ | async)"></app-products>
+<app-products [currentLanguage$]="currentLanguage$"></app-products>
 <app-footer></app-footer>
