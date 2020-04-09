@@ -18,22 +18,22 @@ export class CsvConverterService {
         // remove first row - headers
         lines.shift();
         // remove last row - empty data
-        // lines.pop();
+        lines.pop();
 
         return lines.reduce((products, currentLine) => {
             const line = currentLine.split(';');
 
             return [
                 ...products, {
-                image: line[0] ? `../assets/images/${line[0]}.jpg` : '',
-                name: line[1] ? line[1] : '',
-                producer: line[2] ? line[2] : '',
-                available_quantity: line[3] ? +line[3] : null,
-                minimum_order_quantity: line[4] ? +line[4] : null,
-                net_price: line[5] ? +line[5].replace(',', '.') : null,
-                gross_price: line[6] ? +line[6].replace(',', '.') : null,
+                    image: line[0] ? `../assets/images/${line[0]}.jpg` : '',
+                    name: line[1] ? line[1] : '',
+                    producer: line[2] ? line[2] : '',
+                    availableQuantity: line[3] ? +line[3] : null,
+                    minimumOrderQuantity: line[4] ? +line[4] : null,
+                    netPrice: line[5] ? +line[5].replace(',', '.') : null,
+                    grossPrice: line[6] ? +line[6].replace(',', '.') : null,
                 }
             ];
         }, []);
-      }
+    }
 }

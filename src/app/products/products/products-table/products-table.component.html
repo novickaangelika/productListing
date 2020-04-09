@@ -1,1 +1,28 @@
-<p>product-listing-table works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>{{'Product.Table.Image' | translate}}</th>
+            <th>{{'Product.Table.Name' | translate}}</th>
+            <th>{{'Product.Table.Producer' | translate}}</th>
+            <th>{{'Product.Table.AvailableQuantity' | translate}}</th>
+            <th>{{'Product.Table.MinimumOrderQuantity' | translate}}</th>
+            <th>{{'Product.Table.NettPrice' | translate}}</th>
+            <th>{{'Product.Table.GrossPrice' | translate}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let p of products">
+            <tr class="">
+                <td>
+                    <app-products-image [image]="p.image"></app-products-image>
+                </td>
+                <td>{{p.name}}</td>
+                <td>{{p.producer}}</td>
+                <td>{{p.availableQuantity}}</td>
+                <td>{{p.minimumOrderQuantity}}</td>
+                <td>{{p.netPrice}}</td>
+                <td>{{p.grossPrice}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

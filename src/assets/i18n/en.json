@@ -1,5 +1,12 @@
 {
     "HeaderTitle": "Our new header!",
     "FooterTitle": "Our new footer!",
-    "image": "image"
+    "image": "image",
+    "Product.Table.Image": "Image",
+    "Product.Table.Name": "Name",
+    "Product.Table.Producer": "Producer",
+    "Product.Table.AvailableQuantity": "Available quantity",
+    "Product.Table.MinimumOrderQuantity": "Minimum order quantity",
+    "Product.Table.NettPrice": "Nett price",
+    "Product.Table.GrossPrice": "Gross price"
 }

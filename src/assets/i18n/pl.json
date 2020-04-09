@@ -1,5 +1,12 @@
 {
     "HeaderTitle": "tutaj będzie header!",
     "FooterTitle": "tutaj będzie footer!",
-    "image": "obraz"
+    "image": "obraz",
+    "Product.Table.Image": "Obraz",
+    "Product.Table.Name": "Nazwa",
+    "Product.Table.Producer": "Producent",
+    "Product.Table.AvailableQuantity": "Dostępna ilość",
+    "Product.Table.MinimumOrderQuantity": "Minimalna ilość zamówienia",
+    "Product.Table.NettPrice": "Cena netto",
+    "Product.Table.GrossPrice": "Cena brutto"
 }

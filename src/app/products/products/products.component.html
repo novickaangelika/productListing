@@ -1,5 +1,6 @@
-<p>product-listing works!</p>
-
-<div *ngFor="let p of products">
-    <div>{{p.name}}</div>
-</div>
+<ng-container *ngIf="true; else boxView">
+    <app-products-table [products]="products"></app-products-table>
+</ng-container>
+<ng-template #boxView>
+    <app-products-boxes [products]="products"></app-products-boxes>
+</ng-template>
