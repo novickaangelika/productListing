@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsModule } from './products/products.module';
+import { CsvConverterService } from './shared/services/csv-converter.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/');
@@ -33,7 +34,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     FooterComponent
   ],
-  providers: [],
+  providers: [
+    CsvConverterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

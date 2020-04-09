@@ -1,4 +1,4 @@
 <app-header></app-header>
 <h1>{{'image' | translate}}</h1>
-<app-products></app-products>
+<app-products [products]="(products$ | async)"></app-products>
 <app-footer></app-footer>
