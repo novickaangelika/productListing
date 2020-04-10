@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FileExistanceService } from 'src/app/shared/services/file-existance.service';
 import { Observable } from 'rxjs';
+
+import { FileExistanceService } from 'src/app/services/file-existance.service';
 
 @Component({
   selector: 'app-product-image',

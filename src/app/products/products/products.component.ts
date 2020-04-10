@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { map, share, takeUntil, mergeMap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
+import { map, share, takeUntil, mergeMap } from 'rxjs/operators';
 
-import { CsvConverterService } from 'src/app/shared/services/csv-converter.service';
-import { Product } from '../shared/models/product.model';
-import { StorageService } from 'src/app/shared/services/storage.service';
+import { CsvConverterService } from 'src/app/products/products/services/csv-converter.service';
+import { Product } from '../product/models/product.model';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-products',
@@ -13,20 +13,18 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 })
 export class ProductsComponent implements OnInit {
   @Input() currentLanguage$: Observable<string>;
+
   products$: Observable<Product[]>;
   activeView: string;
   viewOptions = [
     'table',
     'boxes'
   ];
-
   private unsubscribe$ = new Subject();
 
   constructor(
     private csvConverterService: CsvConverterService,
-    private storageService: StorageService
-  ) {
-  }
+    private storageService: StorageService) {}
 
   ngOnInit() {
     // todo czy lepiej odwolac się do serwisu?

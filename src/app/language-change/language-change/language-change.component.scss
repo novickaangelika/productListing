@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables';
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
 
 .lang__container {
     display: flex;
@@ -29,8 +29,11 @@
         }
 
         &.active {
+            transition: all .2s ease;
+            
             label {
                 border: 1px solid #fff;
+
                 &:hover {
                     border: 1px solid #fff;
                 }

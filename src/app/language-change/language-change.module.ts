@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { LanguageChangeComponent } from './language-change.component';
+import { LanguageChangeComponent } from './language-change/language-change.component';
 import { FormsModule } from '@angular/forms';
 import { LanguageChangerService } from './shared/services/language-changer.service';
 import { LanguageService } from './shared/services/language.service';

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LanguageChangerService } from './language-change/shared/services/language-changer.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
+
+import { LanguageChangerService } from './language-change/shared/services/language-changer.service';
+import { StorageService } from './services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +16,16 @@ export class AppComponent implements OnInit {
 
   constructor(
     private translate: TranslateService,
-    private languageChangerService: LanguageChangerService
-  ) {
-  }
+    private languageChangerService: LanguageChangerService,
+    private storageService: StorageService) {}
 
   ngOnInit() {
-    this.currentLanguage$ = this.languageChangerService.languageCode$.pipe(
-      tap(currentLanguage => this.translate.setDefaultLang(currentLanguage))
-    );
+    if (this.storageService.getItem('language')) {
+      this.currentLanguage$ = of(this.storageService.getItem('language'));
+    } else {
+      this.currentLanguage$ = this.languageChangerService.languageCode$.pipe(
+        tap(currentLanguage => this.translate.setDefaultLang(currentLanguage))
+      );
+    }
   }
 }

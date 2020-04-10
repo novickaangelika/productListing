@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, mapTo } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
+import { catchError, mapTo } from 'rxjs/operators';
 
 @Injectable()
 export class FileExistanceService {

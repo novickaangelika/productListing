@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Product } from 'src/app/products/shared/models/product.model';
+import { Product } from 'src/app/products/product/models/product.model';
 
 @Injectable()
 export class CsvConverterService {

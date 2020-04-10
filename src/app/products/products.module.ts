@@ -5,10 +5,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 import { ProductsComponent } from './products/products.component';
-import { ProductsTableComponent } from './products/products-table/products-table.component';
-import { ProductsBoxesComponent } from './products/products-boxes/products-boxes.component';
-import { ProductImageComponent } from './products/product/product-image/product-image.component';
-import { ProductsViewChangerComponent } from './products/products-view-changer/products-view-changer.component';
+import { ProductsTableComponent } from './products-table/products-table.component';
+import { ProductsBoxesComponent } from './products-boxes/products-boxes.component';
+import { ProductImageComponent } from './product/product-image/product-image.component';
+import { ProductsViewChangerComponent } from './products-view-changer/products-view-changer.component';
+import { CsvConverterService } from './products/services/csv-converter.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -35,6 +36,9 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   exports: [
     ProductsComponent
+  ],
+  providers: [
+    CsvConverterService
   ]
 })
 export class ProductsModule { }
