@@ -7,7 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { ProductsComponent } from './products/products.component';
 import { ProductsTableComponent } from './products/products-table/products-table.component';
 import { ProductsBoxesComponent } from './products/products-boxes/products-boxes.component';
-import { ProductsImageComponent } from './products/products-image/products-image.component';
+import { ProductImageComponent } from './products/product/product-image/product-image.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -29,7 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductsComponent,
     ProductsTableComponent,
     ProductsBoxesComponent,
-    ProductsImageComponent
+    ProductImageComponent
   ],
   exports: [
     ProductsComponent

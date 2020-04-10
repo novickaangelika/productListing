@@ -1,6 +1,6 @@
 <ng-container *ngIf="(imageExists$ | async) && image !== ''; else noImage">
-    <img src="{{image}}" height="100" width="100">
+    <img class="image" src="{{image}}">
 </ng-container>
 <ng-template #noImage>
-    <img src="../assets/images/noImage.jpg" height="100" width="100">
+    <img class="image" src="../assets/images/noImage.jpg">
 </ng-template>

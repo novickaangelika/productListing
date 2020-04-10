@@ -3,10 +3,11 @@ import { FileExistanceService } from 'src/app/shared/services/file-existance.ser
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-products-image',
-  templateUrl: './products-image.component.html'
+  selector: 'app-product-image',
+  templateUrl: './product-image.component.html',
+  styleUrls: ['./product-image.component.scss']
 })
-export class ProductsImageComponent implements OnInit {
+export class ProductImageComponent implements OnInit {
     @Input() image: string;
     imageExists$: Observable<boolean>;
 
