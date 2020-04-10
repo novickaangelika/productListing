@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductsTableComponent } from './products/products-table/products-table.component';
 import { ProductsBoxesComponent } from './products/products-boxes/products-boxes.component';
 import { ProductImageComponent } from './products/product/product-image/product-image.component';
+import { ProductsViewChangerComponent } from './products/products-view-changer/products-view-changer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -29,7 +30,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductsComponent,
     ProductsTableComponent,
     ProductsBoxesComponent,
-    ProductImageComponent
+    ProductImageComponent,
+    ProductsViewChangerComponent
   ],
   exports: [
     ProductsComponent

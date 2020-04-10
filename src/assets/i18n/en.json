@@ -1,6 +1,7 @@
 {
-    "HeaderTitle": "Our new header!",
-    "FooterTitle": "Our new footer!",
+    "Header.Title": "Professional car shops and services",
+    "Header.SubTitle": "Best auto parts",
+    "Footer.CopyRights": "© All rights reserved",
     "image": "image",
     "Product.Table.Image": "Image",
     "Product.Table.Name": "Name",

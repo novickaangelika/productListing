@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 
 import { CsvConverterService } from 'src/app/shared/services/csv-converter.service';
 import { Product } from '../shared/models/product.model';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-products',
@@ -13,10 +14,17 @@ import { Product } from '../shared/models/product.model';
 export class ProductsComponent implements OnInit {
   @Input() currentLanguage$: Observable<string>;
   products$: Observable<Product[]>;
+  activeView: boolean[];
+  viewOptions = [
+    [true, false],
+    [false, true]
+  ];
+
   private unsubscribe$ = new Subject();
 
   constructor(
-    private csvConverterService: CsvConverterService
+    private csvConverterService: CsvConverterService,
+    private storageService: StorageService
   ) {
   }
 
@@ -28,5 +36,16 @@ export class ProductsComponent implements OnInit {
       map(csvData => this.csvConverterService.convertCsvData(csvData)),
       share()
     );
+
+    const productsView: boolean[] = this.storageService.getItem('productsView');
+    if (!productsView) {
+      this.storageService.setItem('productsView', this.viewOptions[0]);
+    }
+    this.activeView = productsView ? productsView : this.viewOptions[0];
+  }
+
+  changeProductsView(productsView: boolean[]) {
+    this.storageService.setItem('productsView', productsView);
+    this.activeView = productsView;
   }
 }

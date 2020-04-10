@@ -1,6 +1,7 @@
 {
-    "HeaderTitle": "tutaj będzie header!",
-    "FooterTitle": "tutaj będzie footer!",
+    "Header.Title": "Profesjonalne sklepy i serwisy samochodowe",
+    "Header.SubTitle": "Składamy się z najlepszych części",
+    "Footer.CopyRights": "© Wszelkie prawa zastrzeżone",
     "image": "obraz",
     "Product.Table.Image": "Obraz",
     "Product.Table.Name": "Nazwa",

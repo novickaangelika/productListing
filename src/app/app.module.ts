@@ -12,6 +12,7 @@ import { CsvConverterService } from './shared/services/csv-converter.service';
 import { FileExistanceService } from './shared/services/file-existance.service';
 import { LanguageChangeModule } from './language-change/language-change.module';
 import { HeaderComponent } from './header/header.component';
+import { StorageService } from './shared/services/storage.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/');
@@ -39,7 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     CsvConverterService,
-    FileExistanceService
+    FileExistanceService,
+    StorageService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,11 @@
 <div class="container">
-    <ng-container *ngIf="false; else boxView">
+    <app-products-view-changer 
+        [activeView]="activeView"
+        [viewOptions]="viewOptions"
+        (productsViewChangeEvent)="changeProductsView($event)">
+    </app-products-view-changer>
+
+    <ng-container *ngIf="activeView[0]; else boxView">
         <app-products-table [products]="(products$ | async)"></app-products-table>
     </ng-container>
     <ng-template #boxView>

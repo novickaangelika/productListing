@@ -1,0 +1,21 @@
+.products__view__changer__container {
+    margin: 16px 0;
+    background: #ec7a28;
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+
+    .view__icon {
+
+        svg {
+            display: block;
+            cursor: pointer;
+            margin-right: 16px;
+            fill: #f4af7e;
+        }
+    
+        &.active svg {
+            fill: #fff;
+        }
+    }
+}
