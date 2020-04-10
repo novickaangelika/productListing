@@ -14,10 +14,10 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 export class ProductsComponent implements OnInit {
   @Input() currentLanguage$: Observable<string>;
   products$: Observable<Product[]>;
-  activeView: boolean[];
+  activeView: string;
   viewOptions = [
-    [true, false],
-    [false, true]
+    'table',
+    'boxes'
   ];
 
   private unsubscribe$ = new Subject();
@@ -37,15 +37,23 @@ export class ProductsComponent implements OnInit {
       share()
     );
 
-    const productsView: boolean[] = this.storageService.getItem('productsView');
-    if (!productsView) {
-      this.storageService.setItem('productsView', this.viewOptions[0]);
-    }
-    this.activeView = productsView ? productsView : this.viewOptions[0];
+    this.setProductsView();
   }
 
-  changeProductsView(productsView: boolean[]) {
+  changeProductsView(productsView: string) {
     this.storageService.setItem('productsView', productsView);
     this.activeView = productsView;
+  }
+
+  private setProductsView() {
+    const productsView: string = this.storageService.getItem('productsView');
+
+    if (productsView) {
+      this.activeView = productsView;
+    } else {
+      const tableView = this.viewOptions[0];
+      this.storageService.setItem('productsView', tableView);
+      this.activeView = tableView;
+    }
   }
 }

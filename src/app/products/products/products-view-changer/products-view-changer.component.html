@@ -1,13 +1,13 @@
 <div class="products__view__changer__container">
     <div class="view__icon"
-        [ngClass]="{'active': activeView[0]}"
+        [ngClass]="{'active': activeView === 'table'}"
         (click)="changeProductsView(0)">
         <svg width="20" height="20" viewBox="0 0 24 24">
             <use xlink:href="./../../../../assets/images/svg-sprite.svg#table"></use>
         </svg>
     </div>
     <div class="view__icon"
-        [ngClass]="{'active': activeView[1]}"
+        [ngClass]="{'active': activeView === 'boxes'}"
         (click)="changeProductsView(1)">
         <svg width="20" height="20" viewBox="0 0 24 24">
             <use xlink:href="./../../../../assets/images/svg-sprite.svg#boxes"></use>

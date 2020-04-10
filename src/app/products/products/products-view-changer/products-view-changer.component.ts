@@ -6,9 +6,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./products-view-changer.component.scss']
 })
 export class ProductsViewChangerComponent {
-    @Input() activeView: boolean[];
-    @Input() viewOptions: boolean[][];
-    @Output() productsViewChangeEvent = new EventEmitter<boolean[]>();
+    @Input() activeView: string;
+    @Input() viewOptions: string[];
+    @Output() productsViewChangeEvent = new EventEmitter<string>();
 
     changeProductsView(viewId: number) {
         const productsView = this.viewOptions[viewId];
