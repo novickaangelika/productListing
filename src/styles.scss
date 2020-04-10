@@ -2,7 +2,8 @@
 @import '../src/styles/variables';
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:100,300,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:100,300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:300,400,700&display=swap');
 
 *,
 *::after,
@@ -58,4 +59,12 @@ body {
     margin: 0 auto;
     padding: 32px 0;
   }
+}
+
+.products__table .image {
+  max-height: 68px;
+}
+
+.products__boxes .image {
+  max-height: 115px;
 }

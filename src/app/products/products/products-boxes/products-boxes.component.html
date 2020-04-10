@@ -1,3 +1,25 @@
-<div *ngFor="let p of products">
-    <div>{{p.name}}</div>
+<div class="products__boxes">
+    <div *ngFor="let product of products" class="product">
+        <div class="product__image">
+            <app-product-image [image]="product.image"></app-product-image>
+        </div>
+        <div class="product__producer">
+            {{'Product.Table.Producer' | translate}}: <span>{{product.producer}}</span>
+        </div>
+        <div class="product__name">
+            {{product.name}}
+        </div>
+        <div class="product__avaquantity">
+            {{'Product.Table.AvailableQuantity' | translate}}: <span>{{product.availableQuantity}}</span>
+        </div>
+        <div class="product__minquantity">
+            {{'Product.Table.MinimumOrderQuantity' | translate}}: <span>{{product.minimumOrderQuantity}}</span>
+        </div>
+        <div class="product__nett">
+            {{'Product.Table.NettPrice' | translate}}: <span>{{product.netPrice}}</span>
+        </div>
+        <div class="product__gross">
+            {{'Product.Table.GrossPrice' | translate}}: <span>{{product.grossPrice}}</span>
+        </div>
+    </div>
 </div>

@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-image',
-  templateUrl: './product-image.component.html',
-  styleUrls: ['./product-image.component.scss']
+  templateUrl: './product-image.component.html'
 })
 export class ProductImageComponent implements OnInit {
     @Input() image: string;
