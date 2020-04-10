@@ -20,8 +20,11 @@ export class AppComponent implements OnInit {
     private storageService: StorageService) {}
 
   ngOnInit() {
-    if (this.storageService.getItem('language')) {
-      this.currentLanguage$ = of(this.storageService.getItem('language'));
+    const language: string = this.storageService.getItem('language');
+
+    if (language) {
+      this.currentLanguage$ = of(language);
+      this.translate.setDefaultLang(language)
     } else {
       this.currentLanguage$ = this.languageChangerService.languageCode$.pipe(
         tap(currentLanguage => this.translate.setDefaultLang(currentLanguage))
