@@ -1,0 +1,41 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables';
+
+.lang__container {
+    display: flex;
+
+    &__button {
+        text-align: center;
+        margin-left: 8px;
+
+        label {
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            padding: 8px;
+            font-size: $txt-small-size;
+            text-transform: uppercase;
+            color: #fff;
+            border: 1px solid #5a5a5a;
+
+            &:hover {
+                border-color: #f47521;
+                color: #f47521;
+            }
+        }
+
+        input {
+            display: none;
+        }
+
+        &.active {
+            label {
+                border: 1px solid #fff;
+                &:hover {
+                    border: 1px solid #fff;
+                }
+            }
+        }
+    }
+}
+

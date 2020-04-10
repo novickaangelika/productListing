@@ -11,6 +11,7 @@ import { ProductsModule } from './products/products.module';
 import { CsvConverterService } from './shared/services/csv-converter.service';
 import { FileExistanceService } from './shared/services/file-existance.service';
 import { LanguageChangeModule } from './language-change/language-change.module';
+import { HeaderComponent } from './header/header.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/');
@@ -33,7 +34,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   declarations: [
     AppComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   providers: [
     CsvConverterService,

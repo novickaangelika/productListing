@@ -1,0 +1,19 @@
+/*
+* @RWD breakpoints
+*/
+$breakpoints: (
+  lg: 1600px,
+  md: 1200px,
+  sm: 992px,
+  xs: 768px
+);
+
+@mixin bp($breakpoint) {
+  $query: map-get($breakpoints, $breakpoint);
+  @if $query != null {
+    @media (min-width: #{$query}) {
+      @content;
+    }
+  }
+}
+/* end of RWD breakpoints */

@@ -1,5 +1,8 @@
-<ng-container *ngIf="(languageCodes$ | async) as languageCodes">
-    <div *ngFor="let languageCode of languageCodes">
+<div *ngIf="(languageCodes$ | async) as languageCodes"
+    class="lang__container">
+    <div *ngFor="let languageCode of languageCodes"
+        class="lang__container__button"
+        [ngClass]="{'active': currentLanguage === languageCode.code}">
         <input type="radio"
             id="changeLanguage{{languageCode.code}}"
             value="{{languageCode.code}}"
@@ -8,4 +11,4 @@
             (click)="changeLanguage(languageCode.code)">
         <label for="changeLanguage{{languageCode.code}}"> {{ languageCode.code }} </label>
     </div>
-</ng-container>
+</div>

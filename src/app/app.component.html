@@ -1,5 +1,8 @@
-<header>
-    <app-language-change [currentLanguage]="(currentLanguage$ | async)"></app-language-change>
+<header class="header">
+    <section class="header__container">
+        <app-header></app-header>
+        <app-language-change [currentLanguage]="(currentLanguage$ | async)"></app-language-change>
+    </section>
 </header>
 <app-products [currentLanguage$]="currentLanguage$"></app-products>
 <app-footer></app-footer>
