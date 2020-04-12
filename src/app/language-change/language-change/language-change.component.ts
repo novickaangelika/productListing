@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
-import { LanguageChangerService } from '../shared/services/language-changer.service';
-import { LanguageService } from '../shared/services/language.service';
-import { Language } from '../shared/models/language.model';
+import { Language } from '../models/language.model';
+import { LanguageChangerService } from '../services/language-changer.service';
+import { LanguageService } from '../services/language.service';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
@@ -14,16 +14,14 @@ import { StorageService } from '../../services/storage.service';
 })
 
 export class LanguageChangeComponent implements OnInit {
-  languageCodes$: Observable<Language[]>;
   @Input() currentLanguage: string;
+  languageCodes$: Observable<Language[]>;
 
   constructor(
     private translate: TranslateService,
     private languageChangerService: LanguageChangerService,
     private languageService: LanguageService,
-    private storageService: StorageService
-  ) {
-  }
+    private storageService: StorageService) {}
 
   ngOnInit() {
     this.languageCodes$ = this.languageService.getLanguagesCodes();
@@ -33,5 +31,6 @@ export class LanguageChangeComponent implements OnInit {
     this.translate.setDefaultLang(code);
     this.languageChangerService.changeLanguage(code);
     this.storageService.setItem('language', code);
+    location.replace('/');
   }
 }

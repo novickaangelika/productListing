@@ -6,7 +6,7 @@ import { Product } from 'src/app/products/product/models/product.model';
 
 @Injectable()
 export class CsvConverterService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {}
 
     getCsvData(fileName: string): Observable<string> {
         return this.http.get(`../assets/data/${fileName}.csv`, { responseType: 'text' });

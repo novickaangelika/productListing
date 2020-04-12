@@ -5,9 +5,9 @@ import { Language } from '../models/language.model';
 
 @Injectable()
 export class LanguageService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {}
 
-    getLanguagesCodes(): Observable<Language[]>{
+    getLanguagesCodes(): Observable<Language[]> {
         return (this.http.get(`../assets/data/language.json`) as Observable<Language[]>);
     }
 }

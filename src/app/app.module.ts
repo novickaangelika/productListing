@@ -8,10 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsModule } from './products/products.module';
-import { FileExistanceService } from './services/file-existance.service';
 import { LanguageChangeModule } from './language-change/language-change.module';
 import { HeaderComponent } from './header/header.component';
 import { StorageService } from './services/storage.service';
+import { FileExistanceService } from './services/file-existance.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/');

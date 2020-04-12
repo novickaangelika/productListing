@@ -5,7 +5,7 @@ import { catchError, mapTo } from 'rxjs/operators';
 
 @Injectable()
 export class FileExistanceService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {}
 
     checkFileExistance(fileName: string): Observable<boolean> {
         return this.http.get(fileName).pipe(

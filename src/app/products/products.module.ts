@@ -10,6 +10,7 @@ import { ProductsBoxesComponent } from './products-boxes/products-boxes.componen
 import { ProductImageComponent } from './product/product-image/product-image.component';
 import { ProductsViewChangerComponent } from './products-view-changer/products-view-changer.component';
 import { CsvConverterService } from './products/services/csv-converter.service';
+import { PaginationModule } from './pagination/pagination.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -26,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         },
         isolate: false
     }),
+    PaginationModule
   ],
   declarations: [
     ProductsComponent,

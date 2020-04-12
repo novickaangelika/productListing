@@ -5,10 +5,15 @@
         (productsViewChangeEvent)="changeProductsView($event)">
     </app-products-view-changer>
 
+    <app-pagination 
+        [pagination]="pagination"
+        (pageChangeEvent)="changePage($event)">
+    </app-pagination>
+
     <ng-container *ngIf="activeView === 'table'; else boxView">
-        <app-products-table [products]="(products$ | async)"></app-products-table>
+        <app-products-table [products]="pagedItems"></app-products-table>
     </ng-container>
     <ng-template #boxView>
-        <app-products-boxes [products]="(products$ | async)"></app-products-boxes>
+        <app-products-boxes [products]="pagedItems"></app-products-boxes>
     </ng-template>
 </div>

@@ -1,0 +1,51 @@
+.pagination {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+
+    li {
+        border: 1px solid #484848;
+        background: #f8f8f8;
+        margin-right: 8px;
+        cursor: pointer;
+
+        &:hover {
+            border: 1px solid #FA6800;
+        }
+
+        &:active {
+            border: 1px solid #FA6800;
+            background-color: #e8e8e8;
+        }
+
+        &.disabled {
+            border: 1px solid #c8c8c8;
+            background-color: #f2f2f2;
+            color: #c8c8c8;
+            cursor: initial;
+    
+            svg {
+                fill: #c8c8c8;
+            }
+        }
+    
+        &.active {
+            border: 1px solid #FA6800;
+            color: #FA6800;
+            cursor: initial;
+        }
+    }
+
+   
+
+    a {
+        display: block;
+        padding: 4px 12px 6px 12px;
+    }
+}
+
+.arrow-left {
+    transform: rotate(180deg);
+}

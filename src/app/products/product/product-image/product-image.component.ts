@@ -12,7 +12,7 @@ export class ProductImageComponent implements OnInit {
     imageExists$: Observable<boolean>;
 
     constructor(
-        private fileExistanceService: FileExistanceService) { }
+        private fileExistanceService: FileExistanceService) {}
 
     ngOnInit() {
         this.imageExists$ = this.fileExistanceService.checkFileExistance(this.image);
