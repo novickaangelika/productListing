@@ -10,7 +10,8 @@ import { Pagination } from '../pagination/models/pagination.model';
 
 @Component({
   selector: 'app-products',
-  templateUrl: './products.component.html'
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy {
   @Input() currentLanguage$: Observable<string>;
@@ -21,11 +22,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
     'table',
     'boxes'
   ];
-  private unsubscribe$ = new Subject();
-  private allItems: Product[];
-
   pagination: Pagination = {};
   pagedItems: Product[];
+  pageLimit = 5;
+
+  private unsubscribe$ = new Subject();
+  private allItems: Product[];
 
   constructor(
     private csvConverterService: CsvConverterService,
@@ -60,7 +62,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
     if (page < 1 || page > this.pagination.totalPages) {
       return;
     }
-    this.pagination = this.paginationService.createPagination(this.allItems.length, page);
+    this.pagination = this.paginationService.createPagination(this.allItems.length, page, this.pageLimit);
+    this.pagedItems = this.allItems.slice(this.pagination.startIndex, this.pagination.endIndex + 1);
+  }
+
+  changeLimit(limit: number) {
+    this.pageLimit = limit;
+    this.pagination = this.paginationService.createPagination(this.allItems.length, 1, limit);
     this.pagedItems = this.allItems.slice(this.pagination.startIndex, this.pagination.endIndex + 1);
   }
 

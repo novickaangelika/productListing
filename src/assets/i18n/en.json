@@ -9,5 +9,6 @@
     "Product.Table.AvailableQuantity": "Available quantity",
     "Product.Table.MinimumOrderQuantity": "Minimum order quantity",
     "Product.Table.NettPrice": "Nett price",
-    "Product.Table.GrossPrice": "Gross price"
+    "Product.Table.GrossPrice": "Gross price",
+    "PageLimit.Limit": "Items per page"
 }

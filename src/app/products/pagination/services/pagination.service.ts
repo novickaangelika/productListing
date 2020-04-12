@@ -6,7 +6,7 @@ import { Pagination } from '../models/pagination.model';
 export class PaginationService {
 
     // todo przekazac pageSize
-    createPagination(totalItems: number, currentPage: number = 1, pageSize: number = 10): Pagination {
+    createPagination(totalItems: number, currentPage: number = 1, pageSize: number): Pagination {
         const totalPages = Math.ceil(totalItems / pageSize);
         let startPage: number;
         let endPage: number;

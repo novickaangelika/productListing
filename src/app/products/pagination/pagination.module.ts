@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PaginationService } from './services/pagination.service';
-import { PaginationComponent } from './pagination.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   imports: [
