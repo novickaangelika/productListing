@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ];
   pagination: Pagination = {};
   pagedItems: Product[];
-  pageLimit = 5;
+  pageLimit: number;
 
   private unsubscribe$ = new Subject();
   private allItems: Product[];
@@ -37,6 +37,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.changeLanguageCsvFile();
     this.setProductsView();
+
+    this.pageLimit = this.storageService.getItem('pageLimit') ? +this.storageService.getItem('pageLimit') : 5;
   }
 
   ngOnDestroy() {
@@ -59,6 +61,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   changeLimit(limit: number) {
     this.pageLimit = limit;
+    this.storageService.setItem('pageLimit', limit);
     this.changePage(1);
   }
 

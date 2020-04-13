@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-page-limit',
@@ -10,6 +11,9 @@ export class PageLimitComponent {
   @Input() limitOption;
   @Output() limitChangeEvent = new EventEmitter<number>();
 
+  constructor(
+    private storageService: StorageService) {}
+
   limits = [
     5,
     10,
@@ -19,6 +23,7 @@ export class PageLimitComponent {
   ];
 
   chooseLimit(limit: number) {
+    this.storageService.setItem('pageLimit', limit);
     this.limitChangeEvent.emit(limit);
   }
 }
