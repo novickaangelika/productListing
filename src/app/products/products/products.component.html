@@ -1,9 +1,15 @@
 <div class="container">
-    <app-products-view-changer 
-        [activeView]="activeView"
-        [viewOptions]="viewOptions"
-        (productsViewChangeEvent)="changeProductsView($event)">
-    </app-products-view-changer>
+    <div class="products__options__container">
+        <app-page-limit
+            [limitOption]="pageLimit"
+            (limitChangeEvent)="changeLimit($event)">
+        </app-page-limit>
+        <app-products-view-changer 
+            [activeView]="activeView"
+            [viewOptions]="viewOptions"
+            (productsViewChangeEvent)="changeProductsView($event)">
+        </app-products-view-changer>
+    </div>
 
     <app-pagination 
         [pagination]="pagination"

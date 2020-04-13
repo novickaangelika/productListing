@@ -1,0 +1,12 @@
+<section class="limit__container">
+    <h4>{{'PageLimit.Limit' | translate}}:</h4>
+    <select name="limitSelect"
+        [(ngModel)]="limitOption"
+        (change)="chooseLimit(limitOption)">
+        <option value="5" selected hidden>5</option>
+        <option *ngFor="let limit of limits"
+            value="{{limit}}">
+            {{ limit }}
+        </option>
+    </select>
+</section>

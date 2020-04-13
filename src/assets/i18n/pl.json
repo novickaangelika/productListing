@@ -9,5 +9,6 @@
     "Product.Table.AvailableQuantity": "Dostępna ilość",
     "Product.Table.MinimumOrderQuantity": "Minimalna ilość zamówienia",
     "Product.Table.NettPrice": "Cena netto",
-    "Product.Table.GrossPrice": "Cena brutto"
+    "Product.Table.GrossPrice": "Cena brutto",
+    "PageLimit.Limit": "Ilość produktów na stronie"
 }
