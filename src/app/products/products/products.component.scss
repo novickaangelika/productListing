@@ -1,6 +1,12 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
 .products__options__container {
     margin: 16px 0;
     border: 1px solid #ec7a28;
-    display: flex;
-    justify-content: space-between;
+
+    @include bp('xs') {
+        display: flex;
+        justify-content: space-between;
+    }
 }

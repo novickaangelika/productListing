@@ -1,6 +1,11 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
+.products__table__container {
+    position: relative;
+    overflow: auto;
+}
+
 .products__table {
     font-family: $font-family-secondary;
     width: 100%;

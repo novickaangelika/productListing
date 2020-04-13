@@ -27,10 +27,11 @@ body {
 }
 
 .container {
-  margin: 0 auto;
-  width: 100%;
+  margin: 0 8px;
 
   @include bp('xs') {
+    margin: 0 auto;
+    width: 100%;
     max-width: 740px;
   }
 

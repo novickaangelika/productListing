@@ -1,28 +1,30 @@
-<table class="products__table">
-    <thead class="products__table__head">
-        <tr>
-            <th>{{'Product.Table.Image' | translate}}</th>
-            <th>{{'Product.Table.Name' | translate}}</th>
-            <th>{{'Product.Table.Producer' | translate}}</th>
-            <th>{{'Product.Table.AvailableQuantity' | translate}}</th>
-            <th>{{'Product.Table.MinimumOrderQuantity' | translate}}</th>
-            <th>{{'Product.Table.NettPrice' | translate}}</th>
-            <th>{{'Product.Table.GrossPrice' | translate}}</th>
-        </tr>
-    </thead>
-    <tbody class="products__table__body">
-        <ng-container *ngFor="let product of products">
-            <tr class="product">
-                <td class="product__image">
-                    <app-product-image [image]="product.image"></app-product-image>
-                </td>
-                <td class="product__name">{{product.name}}</td>
-                <td class="product__producer">{{product.producer}}</td>
-                <td class="product__avaquantity">{{product.availableQuantity}}</td>
-                <td class="product__minquantity">{{product.minimumOrderQuantity}}</td>
-                <td class="product__nett">{{product.netPrice}}</td>
-                <td class="product__gross">{{product.grossPrice}}</td>
+<div class="products__table__container">
+    <table class="products__table">
+        <thead class="products__table__head">
+            <tr>
+                <th>{{'Product.Table.Image' | translate}}</th>
+                <th>{{'Product.Table.Name' | translate}}</th>
+                <th>{{'Product.Table.Producer' | translate}}</th>
+                <th>{{'Product.Table.AvailableQuantity' | translate}}</th>
+                <th>{{'Product.Table.MinimumOrderQuantity' | translate}}</th>
+                <th>{{'Product.Table.NettPrice' | translate}}</th>
+                <th>{{'Product.Table.GrossPrice' | translate}}</th>
             </tr>
-        </ng-container>
-    </tbody>
-</table>
+        </thead>
+        <tbody class="products__table__body">
+            <ng-container *ngFor="let product of products">
+                <tr class="product">
+                    <td class="product__image">
+                        <app-product-image [image]="product.image"></app-product-image>
+                    </td>
+                    <td class="product__name">{{product.name}}</td>
+                    <td class="product__producer">{{product.producer}}</td>
+                    <td class="product__avaquantity">{{product.availableQuantity}}</td>
+                    <td class="product__minquantity">{{product.minimumOrderQuantity}}</td>
+                    <td class="product__nett">{{product.netPrice}}</td>
+                    <td class="product__gross">{{product.grossPrice}}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
