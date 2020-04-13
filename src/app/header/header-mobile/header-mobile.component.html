@@ -1,0 +1,25 @@
+<header class="header scrolled"
+    [ngClass]="{'scrolled': windowScrolled}">
+    <section class="header__container container">
+        <div class="header__container__info">
+            <a href="/">
+                <img src="../../assets/images/logo.png" height="32" width="190">
+            </a>
+        </div>
+        <div class="header__nav"
+            (click)="toogleNav()"
+            [ngClass]="{'on': showMenu}">
+            <span class="header__nav__bar"></span>
+            <span class="header__nav__bar header__nav__bar--second"></span>
+            <span class="header__nav__bar"></span>
+        </div>
+    </section>
+</header>
+<section class="header__menu"
+    [ngClass]="{'on': showMenu}">
+    <div class="header__menu__lang">
+        <app-language-change></app-language-change>
+    </div>
+</section>
+<div class="header__overlay"
+	[ngClass]="{'on' : showMenu}"></div>

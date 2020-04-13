@@ -9,7 +9,8 @@ import { LanguageChangeComponent } from './language-change/language-change/langu
 import { LanguageChangerService } from './language-change/services/language-changer.service';
 import { LanguageService } from './language-change/services/language.service';
 import { HeaderComponent } from './header/header.component';
-import { WindowService } from './header/services/window.service';
+import { WindowService } from './services/window.service';
+import { HeaderMobileComponent } from './header-mobile/header-mobile.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -30,10 +31,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   declarations: [
     HeaderComponent,
+    HeaderMobileComponent,
     LanguageChangeComponent
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    HeaderMobileComponent
   ],
   providers: [
     WindowService,

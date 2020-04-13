@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { WindowService } from './services/window.service';
+import { WindowService } from '../services/window.service';
 
 @Component({
   selector: 'app-header',
