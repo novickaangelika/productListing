@@ -5,8 +5,7 @@ import { Pagination } from '../models/pagination.model';
 @Injectable()
 export class PaginationService {
 
-    // todo przekazac pageSize
-    createPagination(totalItems: number, currentPage: number = 1, pageSize: number): Pagination {
+    createPagination(totalItems: number, currentPage: number, pageSize: number): Pagination {
         const totalPages = Math.ceil(totalItems / pageSize);
         let startPage: number;
         let endPage: number;
@@ -27,7 +26,7 @@ export class PaginationService {
             }
         }
 
-        const startIndex = (currentPage - 1) * pageSize;
+        const startIndex = (currentPage - 1) * +pageSize;
 
         return {
             totalItems,
@@ -37,7 +36,7 @@ export class PaginationService {
             startPage,
             endPage,
             startIndex,
-            endIndex: Math.min(startIndex + pageSize - 1, totalItems - 1),
+            endIndex: Math.min(startIndex + +pageSize - 1, totalItems - 1),
             pages: _.range(startPage, endPage + 1)
         };
     }

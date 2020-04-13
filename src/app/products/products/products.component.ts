@@ -68,8 +68,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   changeLimit(limit: number) {
     this.pageLimit = limit;
-    this.pagination = this.paginationService.createPagination(this.allItems.length, 1, limit);
-    this.pagedItems = this.allItems.slice(this.pagination.startIndex, this.pagination.endIndex + 1);
+    this.changePage(1);
   }
 
   private setProductsView() {
