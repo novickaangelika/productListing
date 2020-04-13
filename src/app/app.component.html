@@ -1,4 +1,5 @@
-<header class="header">
+<header class="header scrolled"
+    [ngClass]="{'scrolled': windowScrolled}">
     <section class="header__container container">
         <app-header></app-header>
         <app-language-change [currentLanguage]="(currentLanguage$ | async)"></app-language-change>

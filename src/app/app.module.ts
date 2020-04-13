@@ -12,6 +12,7 @@ import { LanguageChangeModule } from './language-change/language-change.module';
 import { HeaderComponent } from './header/header.component';
 import { StorageService } from './services/storage.service';
 import { FileExistanceService } from './services/file-existance.service';
+import { WindowService } from './services/window.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/');
@@ -39,7 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     FileExistanceService,
-    StorageService
+    StorageService,
+    WindowService
   ],
   bootstrap: [AppComponent]
 })
