@@ -1,7 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, Subject, of } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 import { Language } from '../models/language.model';
 import { LanguageChangerService } from '../services/language-changer.service';
@@ -14,12 +13,10 @@ import { StorageService } from '../../../services/storage.service';
   styleUrls: ['./language-change.component.scss']
 })
 
-export class LanguageChangeComponent implements OnInit, OnDestroy {
+export class LanguageChangeComponent implements OnInit {
   currentLanguage$: Observable<string>;
   languageCodes$: Observable<Language[]>;
   changeLanguage: string;
-
-  private unsubscribe$ = new Subject();
 
   constructor(
     private translate: TranslateService,
@@ -36,11 +33,6 @@ export class LanguageChangeComponent implements OnInit, OnDestroy {
     } else {
       this.currentLanguage$ = this.languageChangerService.languageCode$;
     }
-  }
-
-  ngOnDestroy() {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
   doChangeLanguage(code) {
