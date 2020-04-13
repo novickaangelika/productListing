@@ -8,11 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsModule } from './products/products.module';
-import { LanguageChangeModule } from './language-change/language-change.module';
-import { HeaderComponent } from './header/header.component';
 import { StorageService } from './services/storage.service';
 import { FileExistanceService } from './services/file-existance.service';
-import { WindowService } from './services/window.service';
+import { HeaderModule } from './header/header.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/');
@@ -31,17 +29,15 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     ProductsModule,
-    LanguageChangeModule
+    HeaderModule
   ],
   declarations: [
     AppComponent,
-    FooterComponent,
-    HeaderComponent
+    FooterComponent
   ],
   providers: [
     FileExistanceService,
-    StorageService,
-    WindowService
+    StorageService
   ],
   bootstrap: [AppComponent]
 })

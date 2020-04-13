@@ -10,7 +10,6 @@ export class WindowService {
     constructor(
         @Inject(DOCUMENT) private document: Document) { }
 
-
     get window(): Window {
         return _window();
     }

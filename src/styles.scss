@@ -48,33 +48,6 @@ body {
   }
 }
 
-.header {
-  color: $txt-color;
-  background: url('../src/assets/images/header.png'), #1d1d1d;
-
-  &.scrolled {
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    top: 0;
-    transition: right 0.3s ease 0s;
-    box-shadow: grey 0px 0px 5px;
-  }
-
-  &__container {
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    padding: 32px 0;
-    margin: 0 8px;
-
-    @include bp('xs') {
-      margin: 0 auto;
-      width: 100%;
-    }
-  }
-}
-
 .products__table .image {
   max-height: 68px;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil, mergeMap } from 'rxjs/operators';
 
@@ -7,6 +7,7 @@ import { Product } from '../product/models/product.model';
 import { StorageService } from 'src/app/services/storage.service';
 import { PaginationService } from '../pagination/services/pagination.service';
 import { Pagination } from '../pagination/models/pagination.model';
+import { LanguageChangerService } from 'src/app/header/language-change/services/language-changer.service';
 
 @Component({
   selector: 'app-products',
@@ -14,8 +15,6 @@ import { Pagination } from '../pagination/models/pagination.model';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-  @Input() currentLanguage$: Observable<string>;
-
   products$: Observable<Product[]>;
   activeView: string;
   viewOptions = [
@@ -32,19 +31,11 @@ export class ProductsComponent implements OnInit, OnDestroy {
   constructor(
     private csvConverterService: CsvConverterService,
     private storageService: StorageService,
-    private paginationService: PaginationService) {}
+    private paginationService: PaginationService,
+    private languageChangerService: LanguageChangerService) {}
 
   ngOnInit() {
-    // todo czy lepiej odwolac się do serwisu?
-    this.currentLanguage$.pipe(
-      takeUntil(this.unsubscribe$),
-      mergeMap(currentLanguage => this.csvConverterService.getCsvData(`dane_${currentLanguage}`)),
-      map(csvData => this.csvConverterService.convertCsvData(csvData))
-    ).subscribe(data => {
-       this.allItems = data;
-       this.changePage(1);
-    });
-
+    this.changeLanguageCsvFile();
     this.setProductsView();
   }
 
@@ -80,6 +71,30 @@ export class ProductsComponent implements OnInit, OnDestroy {
       const tableView = this.viewOptions[0];
       this.storageService.setItem('productsView', tableView);
       this.activeView = tableView;
+    }
+  }
+
+  private changeLanguageCsvFile() {
+    const language: string = this.storageService.getItem('language');
+
+    if (language) {
+      this.csvConverterService.getCsvData(`dane_${language}`).pipe(
+        map(csvData => this.csvConverterService.convertCsvData(csvData))
+      ).subscribe(data => {
+        this.allItems = data;
+        this.changePage(1);
+      });
+    } else {
+      this.languageChangerService.languageCode$.pipe(
+        takeUntil(this.unsubscribe$),
+        mergeMap(currentLanguage => {
+          return this.csvConverterService.getCsvData(`dane_${currentLanguage}`);
+        }),
+        map(csvData => this.csvConverterService.convertCsvData(csvData))
+      ).subscribe(data => {
+        this.allItems = data;
+        this.changePage(1);
+      });
     }
   }
 }
