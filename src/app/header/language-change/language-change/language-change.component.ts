@@ -1,11 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { Language } from '../models/language.model';
 import { LanguageChangerService } from '../services/language-changer.service';
 import { LanguageService } from '../services/language.service';
-import { StorageService } from '../../services/storage.service';
+import { StorageService } from '../../../services/storage.service';
 
 @Component({
   selector: 'app-language-change',
@@ -13,9 +14,12 @@ import { StorageService } from '../../services/storage.service';
   styleUrls: ['./language-change.component.scss']
 })
 
-export class LanguageChangeComponent implements OnInit {
-  @Input() currentLanguage: string;
+export class LanguageChangeComponent implements OnInit, OnDestroy {
+  currentLanguage$: Observable<string>;
   languageCodes$: Observable<Language[]>;
+  changeLanguage: string;
+
+  private unsubscribe$ = new Subject();
 
   constructor(
     private translate: TranslateService,
@@ -25,9 +29,21 @@ export class LanguageChangeComponent implements OnInit {
 
   ngOnInit() {
     this.languageCodes$ = this.languageService.getLanguagesCodes();
+    const language: string = this.storageService.getItem('language');
+
+    if (language) {
+      this.currentLanguage$ = of(language);
+    } else {
+      this.currentLanguage$ = this.languageChangerService.languageCode$;
+    }
   }
 
-  changeLanguage(code: string) {
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
+  doChangeLanguage(code) {
     this.translate.setDefaultLang(code);
     this.languageChangerService.changeLanguage(code);
     this.storageService.setItem('language', code);

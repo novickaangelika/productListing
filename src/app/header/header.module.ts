@@ -5,9 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-import { LanguageChangeComponent } from './language-change/language-change.component';
-import { LanguageChangerService } from './services/language-changer.service';
-import { LanguageService } from './services/language.service';
+import { LanguageChangeComponent } from './language-change/language-change/language-change.component';
+import { LanguageChangerService } from './language-change/services/language-changer.service';
+import { LanguageService } from './language-change/services/language.service';
+import { HeaderComponent } from './header/header.component';
+import { WindowService } from './header/services/window.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -27,14 +29,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule
   ],
   declarations: [
+    HeaderComponent,
     LanguageChangeComponent
   ],
   exports: [
-    LanguageChangeComponent
+    HeaderComponent
   ],
   providers: [
+    WindowService,
     LanguageChangerService,
     LanguageService
   ]
 })
-export class LanguageChangeModule {}
+export class HeaderModule {}
