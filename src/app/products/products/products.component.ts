@@ -82,6 +82,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
     if (language) {
       this.csvConverterService.getCsvData(`dane_${language}`).pipe(
+        takeUntil(this.unsubscribe$),
         map(csvData => this.csvConverterService.convertCsvData(csvData))
       ).subscribe(data => {
         this.allItems = data;

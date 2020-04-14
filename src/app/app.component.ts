@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { noop } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { LanguageChangerService } from './header/language-change/services/language-changer.service';
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
     } else {
       this.languageChangerService.languageCode$.pipe(
         tap(currentLanguage => this.translate.setDefaultLang(currentLanguage))
-      );
+      ).subscribe(noop);
     }
   }
 }
