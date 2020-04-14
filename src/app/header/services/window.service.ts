@@ -9,7 +9,7 @@ function _window(): Window {
 export class WindowService {
     constructor(
         @Inject(DOCUMENT) private document: Document,
-        @Inject(PLATFORM_ID) private platformId: Object) { }
+        @Inject(PLATFORM_ID) private platformId) { }
 
     get window(): Window {
         return _window();

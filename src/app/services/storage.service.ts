@@ -3,7 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Injectable()
 export class StorageService {
-    constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+    constructor(@Inject(PLATFORM_ID) private platformId) { }
 
     setItem(name: string, item: any) {
         if (isPlatformBrowser(this.platformId)) {
@@ -18,7 +18,7 @@ export class StorageService {
             const itemString = localStorage.getItem(name);
 
             try {
-                return <T>JSON.parse(itemString);
+                return JSON.parse(itemString) as T;
             } catch (error) {
                 return undefined;
             }

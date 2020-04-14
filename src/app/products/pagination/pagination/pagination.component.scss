@@ -1,9 +1,11 @@
+@import '../../../../styles/variables.scss';
+
 .pagination {
     list-style: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: $txt-xsmall-size;
     padding: 0;
 
     li {
