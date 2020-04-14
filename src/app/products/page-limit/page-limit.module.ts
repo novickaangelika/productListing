@@ -6,7 +6,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { PageLimitComponent } from './page-limit/page-limit.component';
-import { PageLimitService } from './services/page-limit.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -30,9 +29,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   exports: [
     PageLimitComponent
-  ],
-  providers: [
-    PageLimitService
   ]
 })
 export class PageLimitModule { }

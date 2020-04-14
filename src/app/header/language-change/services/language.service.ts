@@ -8,6 +8,6 @@ export class LanguageService {
     constructor(private http: HttpClient) {}
 
     getLanguagesCodes(): Observable<Language[]> {
-        return (this.http.get(`../assets/data/language.json`) as Observable<Language[]>);
+        return (this.http.get('../assets/data/language.json') as Observable<Language[]>);
     }
 }

@@ -8,7 +8,6 @@ import { ProductsComponent } from './products/products.component';
 import { ProductsTableComponent } from './products-table/products-table.component';
 import { ProductsBoxesComponent } from './products-boxes/products-boxes.component';
 import { ProductImageComponent } from './product/product-image/product-image.component';
-import { ProductsViewChangerComponent } from './products-view-changer/products-view-changer/products-view-changer.component';
 import { CsvConverterService } from './products/services/csv-converter.service';
 import { PaginationModule } from './pagination/pagination.module';
 import { PageLimitModule } from './page-limit/page-limit.module';
